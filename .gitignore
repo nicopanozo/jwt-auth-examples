@@ -1,0 +1,24 @@
+# Dependenciesnode_modules/
+package-lock.jsonyarn.lock
+# Coverage directories
+coverage/.nyc_output/
+.coverage/.c8/
+# Build outputs
+dist/build/
+lib/
+# Logslogs/
+*.lognpm-debug.log*
+yarn-debug.log*yarn-error.log*
+# Environment variables
+.env.env.local
+.env.development.env.test
+.env.production
+# Editor directories and files.idea/
+.vscode/*.swp
+*.swo.DS_Store
+Thumbs.db
+# Temporary filestmp/
+temp/*.tmp
+
+# Debug files
+.debug/
