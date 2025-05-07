@@ -1,23 +1,60 @@
-npm init -y
-npm install --save-dev jsonwebtoken dotenv express jest supertest
+# JWT Authentication Example
 
+A simple Node.js application demonstrating JWT (JSON Web Token) authentication with Express.
 
-$ node verifyToken.js
-Server running on http://localhost:4000
+## Features
 
-# In another terminal
-$ curl -X POST http://localhost:4000/login
-{"token":"eyJhbG...}
+- Token generation with jsonwebtoken
+- Protected routes with middleware verification
+- Basic user authentication flow
+- Test suite using Jest and Supertest
 
-$ curl -H "Authorization: Bearer eyJhbG..." http://localhost:4000/protected
-{"message":"Access granted!","user":{"userId":12345,"username":"john_doe","role":"admin","iat":...,"exp":...}}
+## Installation
 
-Example
+```bash
+npm install
+```
 
+## Usage
+
+Start the server:
+
+```bash
+node verifyToken.js
+```
+
+The server will run on http://localhost:4000
+
+### Endpoints
+
+#### Generate Token
+
+```bash
 curl -X POST http://localhost:4000/login
+```
 
-curl -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEyMzQ1LCJ1c2VybmFtZSI6ImpvaG5fZG9lIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzQ1OTM5MzY5LCJleHAiOjE3NDU5NDI5Njl9.Yd0K0t-_A1k36K6P_-M4tk6saKY8IJLKjy9WJHFhHFY" http://localhost:4000/protected
+This returns a JWT token for the demo user.
 
-npm install jest supertest --save-dev
+#### Access Protected Route
 
-npm install && npm test
+```bash
+curl -H "Authorization: Bearer YOUR_TOKEN" http://localhost:4000/protected
+```
+
+Replace `YOUR_TOKEN` with the token received from the login endpoint.
+
+## Testing
+
+Run the test suite:
+
+```bash
+npm test
+```
+
+## Dependencies
+
+- express
+- jsonwebtoken
+- dotenv
+- jest (dev)
+- supertest (dev)
